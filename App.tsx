@@ -1,7 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
-import { color } from "./styles/global";
+import { colors } from "./styles/global";
+import RegistrationScreen from "./screens/RegistrationScreen";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -11,21 +12,12 @@ export default function App() {
     "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
   });
   if (!fontsLoaded) {
-    <ActivityIndicator color={color.orange} />;
+    <ActivityIndicator color={colors.orange} />;
   }
   return (
-    <View style={styles.container}>
-      <Text>Home screen</Text>
+    <>
+      <RegistrationScreen />
       <StatusBar style="auto" />
-    </View>
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
